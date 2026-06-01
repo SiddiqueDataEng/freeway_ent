@@ -391,7 +391,7 @@ def tab_executive(data: dict, filters: dict):
             apply_layout(fig, "Daily Sign-in Volume (2025)", height=320)
             fig.update_xaxes(title_text="Date")
             fig.update_yaxes(title_text="Sign-in Count")
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
         else:
             st.info("No daily sign-in data available.")
 
@@ -412,7 +412,7 @@ def tab_executive(data: dict, filters: dict):
             )
             apply_layout(fig, "Sign-in Status Distribution", height=320)
             fig.update_layout(showlegend=False)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
         else:
             st.info("No sign-in status data available.")
 
@@ -436,7 +436,7 @@ def tab_executive(data: dict, filters: dict):
         fig.update_xaxes(title_text="Risk Level")
         fig.update_yaxes(title_text="Count")
         fig.update_layout(showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
     else:
         st.info("No risk level data available.")
 
@@ -476,7 +476,7 @@ def tab_security(data: dict, filters: dict):
             fig.update_xaxes(title_text="Failure Count")
             fig.update_yaxes(title_text="")
             fig.update_layout(coloraxis_showscale=False)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
 
     with col2:
         section("📉 Risk Level Over Time")
@@ -497,7 +497,7 @@ def tab_security(data: dict, filters: dict):
             apply_layout(fig, "Risk Level Distribution Over Time", height=380)
             fig.update_xaxes(title_text="Month", tickangle=45)
             fig.update_yaxes(title_text="Sign-in Count")
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
 
     # ── Row 2: Top risky apps + Failure rate by nationality ──
     col3, col4 = st.columns(2)
@@ -522,7 +522,7 @@ def tab_security(data: dict, filters: dict):
             fig.update_xaxes(title_text="Risky Sign-ins")
             fig.update_yaxes(title_text="")
             fig.update_layout(coloraxis_showscale=False)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
 
     with col4:
         section("🌍 Failure Rate by Nationality")
@@ -546,7 +546,7 @@ def tab_security(data: dict, filters: dict):
             fig.update_xaxes(title_text="Failure Rate (%)")
             fig.update_yaxes(title_text="")
             fig.update_layout(coloraxis_showscale=False)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
 
     # ── Row 3: Device OS breakdown ──
     section("💻 Device OS Breakdown")
@@ -563,7 +563,7 @@ def tab_security(data: dict, filters: dict):
             marker=dict(line=dict(color="#0d1117", width=2)),
         )
         apply_layout(fig, "Device OS Distribution", height=340)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
     else:
         st.info("No device OS data available.")
 
@@ -598,7 +598,7 @@ def tab_workforce(data: dict, filters: dict):
                 marker=dict(line=dict(color="#0d1117", width=2)),
             )
             apply_layout(fig, "Workforce Nationality Distribution", height=380)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
 
     with col2:
         section("👷 Workforce by Role")
@@ -618,7 +618,7 @@ def tab_workforce(data: dict, filters: dict):
             fig.update_xaxes(title_text="Headcount")
             fig.update_yaxes(title_text="")
             fig.update_layout(coloraxis_showscale=False)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
 
     # ── Row 2: Site city bar + Users per project ──
     col3, col4 = st.columns(2)
@@ -640,7 +640,7 @@ def tab_workforce(data: dict, filters: dict):
             fig.update_xaxes(title_text="City")
             fig.update_yaxes(title_text="Headcount")
             fig.update_layout(showlegend=False)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
 
     with col4:
         section("🏗️ Top 10 Projects by User Count")
@@ -663,7 +663,7 @@ def tab_workforce(data: dict, filters: dict):
             fig.update_xaxes(title_text="User Count")
             fig.update_yaxes(title_text="")
             fig.update_layout(coloraxis_showscale=False)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
 
     # ── Row 3: Camp capacity utilization ──
     section("🏕️ Camp Capacity Utilization")
@@ -694,7 +694,7 @@ def tab_workforce(data: dict, filters: dict):
             fig.update_layout(barmode="overlay")
             fig.update_xaxes(title_text="Camp")
             fig.update_yaxes(title_text="People")
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
         else:
             # Fallback: just show capacity
             fig = px.bar(
@@ -705,7 +705,7 @@ def tab_workforce(data: dict, filters: dict):
             )
             fig.update_traces(texttemplate="%{text:,.0f}", textposition="outside")
             apply_layout(fig, "Camp Capacity", height=340)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
     else:
         st.info("No camp capacity data available.")
 
@@ -737,7 +737,7 @@ def tab_projects(data: dict, filters: dict):
         fig.update_xaxes(title_text="Project", tickangle=30)
         fig.update_yaxes(title_text="Budget (USD)")
         fig.update_layout(coloraxis_showscale=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
     else:
         st.info("No project budget data available.")
 
@@ -769,7 +769,7 @@ def tab_projects(data: dict, filters: dict):
                 margin=dict(l=0, r=0, t=40, b=0),
                 title=dict(text="Project Site Locations", font=dict(size=14, color="#f0f6fc"), x=0.01),
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
         else:
             st.info("No site location data available.")
 
@@ -795,7 +795,7 @@ def tab_projects(data: dict, filters: dict):
             fig.update_xaxes(title_text="User Count")
             fig.update_yaxes(title_text="")
             fig.update_layout(coloraxis_showscale=False)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
         else:
             st.info("No project-user data available.")
 
@@ -808,7 +808,7 @@ def tab_projects(data: dict, filters: dict):
                 "color": "#c9d1d9",
                 "border-color": "#30363d",
             }),
-            use_container_width=True,
+            width="stretch",
             height=220,
         )
 
@@ -856,7 +856,7 @@ def tab_activity(data: dict, filters: dict):
         apply_layout(fig, "Monthly Sign-in Heatmap (Day of Month)", height=340)
         fig.update_xaxes(title_text="Day of Month", dtick=1)
         fig.update_yaxes(title_text="Month")
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     # ── Row 2: Sign-ins by application over time + Hourly pattern ──
     col1, col2 = st.columns(2)
@@ -879,7 +879,7 @@ def tab_activity(data: dict, filters: dict):
             fig.update_xaxes(title_text="Month", tickangle=45)
             fig.update_yaxes(title_text="Sign-in Count")
             fig.update_traces(line=dict(width=2), marker=dict(size=5))
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
 
     with col2:
         section("⏰ Hourly Sign-in Pattern")
@@ -900,7 +900,7 @@ def tab_activity(data: dict, filters: dict):
             fig.update_xaxes(title_text="Hour (24h)", dtick=1)
             fig.update_yaxes(title_text="Sign-in Count")
             fig.update_layout(coloraxis_showscale=False)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
 
     # ── Row 3: Top 10 most active users ──
     section("🏆 Top 10 Most Active Users")
@@ -943,7 +943,7 @@ def tab_activity(data: dict, filters: dict):
         fig.update_yaxes(title_text="User (UPN)")
         if color_col != "role":
             fig.update_layout(coloraxis_showscale=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     # ── Sign-in status over time (stacked bar) ──
     section("📊 Sign-in Status Over Time")
@@ -965,7 +965,7 @@ def tab_activity(data: dict, filters: dict):
         apply_layout(fig, "Monthly Sign-in Status (Success vs Failure)", height=320)
         fig.update_xaxes(title_text="Month", tickangle=45)
         fig.update_yaxes(title_text="Sign-in Count")
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
 
 # =============================================================================
