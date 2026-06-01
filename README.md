@@ -1,6 +1,6 @@
 # 🏗️ Freeway M365 Enterprise Dashboard
 
-A production-grade, interactive analytics dashboard built with **Streamlit** and **Plotly** for monitoring workforce, security, and operations across Freeway's Saudi Arabia construction projects.
+An interactive analytics dashboard built with **Streamlit** and **Plotly** for monitoring workforce, security, and operations across Freeway's Saudi Arabia construction projects.
 
 ---
 
@@ -191,6 +191,3 @@ GOLD_PATH = r"C:\path\to\your\freeway_m365_dataset\gold"
 
 ---
 
-## 📄 License
-
-Internal use — Freeway Analytics · 2025
